@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kim Possible with Canvas</title>
+</head>
+<body>
+
+  <canvas id="myCanvas" width="400" height="500"></canvas>
+
+  <script>
+    var canvas = document.getElementById("myCanvas"); 
+    var context = canvas.getContext("2d");
+
+    // Menggambar kepala dan rambut Kim Possible
+    context.beginPath();
+    context.arc(200, 100, 70, 0, 2 * Math.PI); 
+    context.fillStyle = "#EBDDAA";
+    context.fill();
+
+    context.beginPath();
+    context.moveTo(170, 60);
+    context.bezierCurveTo(300, 120, 340, 50, 250, 30);
+    context.bezierCurveTo(170, 20, 70, 10, 100, 190);
+    context.closePath();
+
+    context.fillStyle = "#d05f00";
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
+
+    // Menggambar mata kiri
+    context.beginPath();
+    context.arc(175, 100, 17, 0, 2 * Math.PI);
+    context.fillStyle = "white";
+    context.fill();
+
+    context.beginPath();
+    context.arc(175, 100, 10, 0, 2 * Math.PI);
+    context.fillStyle = "green";
+    context.fill();
+
+    context.beginPath();
+    context.arc(175, 100, 6, 0, 2 * Math.PI);
+    context.fillStyle = "black";
+    context.fill();
+
+    // Menggambar mata kanan
+    context.beginPath();
+    context.arc(220, 100, 17, 0, 2 * Math.PI);
+    context.fillStyle = "white";
+    context.fill();
+
+    context.beginPath();
+    context.arc(220, 100, 10, 0, 2 * Math.PI);
+    context.fillStyle = "green";
+    context.fill();
+
+    context.beginPath();
+    context.arc(220, 100, 6, 0, 2 * Math.PI);
+    context.fillStyle = "black";
+    context.fill();
+
+    // Menggambar mulut
+    context.beginPath();  
+    context.arc(200, 135, 15, 0, Math.PI); 
+    context.closePath();  
+    context.fillStyle = "white";
+    context.fill();
+    context.strokeStyle = "red";
+    context.stroke();
+   
+    function kotak(x, y, width, height, color) {
+        context.fillStyle = color;
+        context.fillRect(x, y, width, height);
+    }
+    // Menggambar kotak-kotak untuk badan, baju, lengan, kaki
+    kotak(140, 180, 120, 155, "#EBDDAA");  // Badan
+    kotak(140, 160, 120, 120, "black");    // Baju
+
+    kotak(120, 180, 30, 140, "black");  // Lengan kiri
+    kotak(250, 180, 30, 140, "black");  // Lengan kanan
+
+    kotak(140, 290, 120, 30, "#6D5D19");  // ikat pinggang 
+    context.beginPath();
+    context.arc(200, 295, 6, 0, 2 * Math.PI);
+    context.fillStyle = "black";
+    context.fill();
+
+    kotak(140, 300, 120, 50, "#44A083");  // Kaki kiri atas
+    kotak(140, 335, 50, 120, "#44A083");  // Kaki kiri atas
+    kotak(210, 335, 50, 120, "#44A083");  // Kaki kanan atas
+
+    // Menggambar sepatu
+    context.fillStyle = "black";
+    context.fillRect(210, 450, 50, 20);  // Sepatu kanan
+
+    context.fillStyle = "black";
+    context.fillRect(140, 450, 50, 20);  // Sepatu kiri
+  </script>
+
+</body>
+</html>
